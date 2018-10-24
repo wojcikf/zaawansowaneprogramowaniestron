@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektWojcik.Models
 {
-    public class KsiegarniaKontekst : DbContext
+    public class KsiegarniaKontekst : DbContext, IUnitOfWork
     {
 
         public DbSet<Ksiazka> Ksiazki {get;set;}

@@ -22,7 +22,7 @@ namespace ProjektWojcik.Controllers
         [HttpGet]
         public IEnumerable<Autor> Get()
         {
-            return _db.Autorzy.ToList();
+            return _db.Gatunki.ToList();
         }
 
         // GET: api/Autor/5

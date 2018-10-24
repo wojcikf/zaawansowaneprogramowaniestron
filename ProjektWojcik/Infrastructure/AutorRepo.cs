@@ -13,27 +13,26 @@ namespace ProjektWojcik.Infrastructure
         public AutorRepo(KsiegarniaKontekst db) {
             _db = db;
         }
-
+        public IUnitOfWork UnitOfWork() => _db;
+        
         public IEnumerable<Autor> GetAll() {
-            return _db.Autorzy.ToList();
+            return _db.Gatunki.ToList();
         }
         public Autor FindById(int id) {
-            return _db.Autorzy.SingleOrDefault(x => x.Id == id);   
+            return _db.Gatunki.SingleOrDefault(x => x.Id == id);   
         }
 
         public void Insert(Autor autor) {
-            _db.Autorzy.Add(autor);
-            _db.SaveChanges();
+            _db.Gatunki.Add(autor);
         }
 
         public void Update(Autor autor) {
-
+            _db.Update(autor);
         }
 
         public void Delete(int id) {
-            var autor = _db.Autorzy.SingleOrDefault(x => x.Id == id);
-            _db.Autorzy.Remove(autor);
-            _db.SaveChanges();
+            var autor = _db.Gatunki.Find(id);
+            _db.Gatunki.Remove(autor);
         }
     }
 }
