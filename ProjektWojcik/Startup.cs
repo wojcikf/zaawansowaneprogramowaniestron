@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ProjektWojcik.Infrastructure;
 using ProjektWojcik.Models;
 
 namespace ProjektWojcik
@@ -36,6 +37,7 @@ namespace ProjektWojcik
             services.AddDbContext<KsiegarniaKontekst>(opt => 
                 opt.UseSqlServer(
                     _configurationRoot.GetConnectionString("DefaultConnection")));
+            services.AddScoped<Repo<Autor>, AutorRepo>();
 
         }
 

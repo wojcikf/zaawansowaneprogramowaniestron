@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjektWojcik.Infrastructure;
 using ProjektWojcik.Models;
 
 namespace ProjektWojcik.Controllers
@@ -12,24 +13,25 @@ namespace ProjektWojcik.Controllers
     [ApiController]
     public class AutorController : ControllerBase
     {
-        private readonly KsiegarniaKontekst _db;
+        
+        private Repo<Autor> _rep;
 
-        public AutorController(KsiegarniaKontekst db) {
-            _db = db;
+        public AutorController(Repo <Autor> rep) {
+            _rep = rep;
         }
 
         // GET: api/Autor
         [HttpGet]
         public IEnumerable<Autor> Get()
         {
-            return _db.Gatunki.ToList();
+            return _rep.GetAll();
         }
 
         // GET: api/Autor/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Autor Get(int id)
         {
-            return "value";
+            return _rep.FindById(id);
         }
 
         // POST: api/Autor

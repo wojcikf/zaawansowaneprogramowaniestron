@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektWojcik.Infrastructure
 {
-    public class WydawcaRepo
+    public class WydawcaRepo : Repo <Wydawca>
     {
         KsiegarniaKontekst _db;
 
@@ -14,7 +14,7 @@ namespace ProjektWojcik.Infrastructure
         {
             _db = db;
         }
-        public IUnitOfWork UnitOfWork() => _db;
+        public IUnitOfWork UnitOfWork => _db;
 
         public IEnumerable<Wydawca> GetAll()
         {
