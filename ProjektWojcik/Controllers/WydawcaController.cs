@@ -60,7 +60,7 @@ namespace ProjektWojcik.Controllers
             {
                 _rep.Update(wydawca);
                 _rep.UnitOfWork.SaveChanges();
-                return CreatedAtRoute("GetAutor", new { id = wydawca.Id }, wydawca);
+                return Ok(wydawca);
             }
             catch (Exception e)
             {

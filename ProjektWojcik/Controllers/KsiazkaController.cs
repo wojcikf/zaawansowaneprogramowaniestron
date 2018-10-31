@@ -44,7 +44,7 @@ namespace ProjektWojcik.Controllers
             {
                 _rep.Insert(ksiazka);
                 _rep.UnitOfWork.SaveChanges();
-                return CreatedAtRoute("GetAutor", new { id = ksiazka.Id }, ksiazka);
+                return CreatedAtRoute("GetKsiazka", new { id = ksiazka.Id }, ksiazka);
             }
             catch (Exception e)
             {
@@ -60,7 +60,7 @@ namespace ProjektWojcik.Controllers
             {
                 _rep.Update(ksiazka);
                 _rep.UnitOfWork.SaveChanges();
-                return CreatedAtRoute("GetAutor", new { id = ksiazka.Id }, ksiazka);
+                return Ok(ksiazka);
             }
             catch (Exception e)
             {

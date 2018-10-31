@@ -60,7 +60,8 @@ namespace ProjektWojcik.Controllers
             {
                 _rep.Update(gatunek);
                 _rep.UnitOfWork.SaveChanges();
-                return CreatedAtRoute("GetAutor", new { id = gatunek.Id }, gatunek);
+                return Ok(gatunek);
+
             }
             catch (Exception e)
             {

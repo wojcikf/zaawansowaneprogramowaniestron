@@ -40,6 +40,7 @@ namespace ProjektWojcik
             services.AddScoped<Repo<Autor>, AutorRepo>();
             services.AddScoped<Repo<Wydawca>, WydawcaRepo>();
             services.AddScoped<Repo<Gatunek>, GatunekRepo>();
+            services.AddScoped<Repo<Ksiazka>, KsiazkaRepo>();
 
         }
 
