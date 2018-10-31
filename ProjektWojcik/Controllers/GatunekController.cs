@@ -5,63 +5,62 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjektWojcik.Infrastructure;
-using ProjektWojcik.Models;
 
 namespace ProjektWojcik.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AutorController : ControllerBase
+    public class GatunekController : ControllerBase
     {
-        
-        private Repo<Autor> _rep;
+        private Repo<Gatunek> _rep;
 
-        public AutorController(Repo <Autor> rep) {
+        public GatunekController(Repo<Gatunek> rep)
+        {
             _rep = rep;
         }
 
-        // GET: api/Autor
+        // GET: api/Gatunek
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_rep.GetAll());
         }
 
-        // GET: api/Autor/5
-        [HttpGet("{id}", Name = "GetAutor")]
+        // GET: api/Gatunek/5
+        [HttpGet("{id}", Name = "GetGatunek")]
         public IActionResult Get(int id)
         {
-            var autor = _rep.FindById(id);
-            if (autor == null)
+            var gatunek = _rep.FindById(id);
+            if (gatunek == null)
                 return NotFound(id);
-            return Ok(autor);
+            return Ok(gatunek);
         }
 
-        // POST: api/Autor
+        // POST: api/Gatunek
         [HttpPost]
-        public IActionResult Post([FromBody] Autor autor)
+        public IActionResult Post([FromBody] Gatunek gatunek)
         {
             try
             {
-                _rep.Insert(autor);
+                _rep.Insert(gatunek);
                 _rep.UnitOfWork.SaveChanges();
-                return CreatedAtRoute("GetAutor", new { id = autor.Id }, autor);
+                return CreatedAtRoute("GetAutor", new { id = gatunek.Id }, gatunek);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return BadRequest(e.Message);
             }
-
         }
 
-        // PUT: api/Autor/5
+        // PUT: api/Gatunek/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Autor autor)
+        public IActionResult Put(int id, [FromBody] Gatunek gatunek)
         {
             try
             {
-                _rep.Update(autor);
+                _rep.Update(gatunek);
                 _rep.UnitOfWork.SaveChanges();
-                return Ok(autor);
+                return CreatedAtRoute("GetAutor", new { id = gatunek.Id }, gatunek);
             }
             catch (Exception e)
             {

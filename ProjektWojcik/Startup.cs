@@ -38,6 +38,8 @@ namespace ProjektWojcik
                 opt.UseSqlServer(
                     _configurationRoot.GetConnectionString("DefaultConnection")));
             services.AddScoped<Repo<Autor>, AutorRepo>();
+            services.AddScoped<Repo<Wydawca>, WydawcaRepo>();
+            services.AddScoped<Repo<Gatunek>, GatunekRepo>();
 
         }
 

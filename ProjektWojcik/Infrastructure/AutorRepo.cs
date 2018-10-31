@@ -31,8 +31,8 @@ namespace ProjektWojcik.Infrastructure
         }
 
         public void Delete(int id) {
-            var autor = _db.Gatunki.Find(id);
-            _db.Gatunki.Remove(autor);
+            var autor = _db.Autorzy.Find(id);
+            _db.Autorzy.Remove(autor);
         }
     }
 }
