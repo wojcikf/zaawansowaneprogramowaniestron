@@ -1,0 +1,24 @@
+<h1>Tabelka </h1>
+<button (click)="dodajObiekt()" class="btn">Dodaj obiekt</button>
+<table style="width:100%;" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nazwa</th>
+      <th scope="col">Wartosc</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let obj of kolekcja">
+      <td>{{obj.nazwa}}</td>
+      <td>{{obj.wartosc}}</td>
+      <td><button (click)="edytujObiekt(obj)" class="btn btn-danger">Edytuj</button></td>
+      <td><button (click)="usunObiekt(obj)" class="btn btn-primary">Usuń</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<label>Nazwa: </label><input [(ngModel)]="obiekt.nazwa" />
+<label>Wartosc: </label><input [(ngModel)]="obiekt.wartosc" />
+<button (click)="dodaj()" class="btn" *ngIf="!trybEdycji">Dodaj obiekt</button>
+<button (click)="zatwierdz()" class="btn" *ngIf="trybEdycji">Zatwierdz</button>
