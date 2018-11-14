@@ -1,24 +1,44 @@
-<h1>Tabelka </h1>
-<button (click)="dodajObiekt()" class="btn">Dodaj obiekt</button>
-<table style="width:100%;" class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nazwa</th>
-      <th scope="col">Wartosc</th>
+<div class="container text-left">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>USOS v0.1 </h1>
+      <button (click)="dodajOsobeShow()" class="btn btn-success">Dodaj osobę</button>
+      <table style="width:100%;" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Lp.</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Stypendium</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let obj of kolekcja">
-      <td>{{obj.nazwa}}</td>
-      <td>{{obj.wartosc}}</td>
-      <td><button (click)="edytujObiekt(obj)" class="btn btn-danger">Edytuj</button></td>
-      <td><button (click)="usunObiekt(obj)" class="btn btn-primary">Usuń</button></td>
-    </tr>
-  </tbody>
-</table>
 
-<label>Nazwa: </label><input [(ngModel)]="obiekt.nazwa" />
-<label>Wartosc: </label><input [(ngModel)]="obiekt.wartosc" />
-<button (click)="dodaj()" class="btn" *ngIf="!trybEdycji">Dodaj obiekt</button>
-<button (click)="zatwierdz()" class="btn" *ngIf="trybEdycji">Zatwierdz</button>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of kolekcja; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{obj.imie}}</td>
+            <td>{{obj.nazwisko}}</td>
+            <td>{{obj.stypendium}}</td>
+            <td><button (click)="edytujObiekt(obj)" (click)="dodajOsobeShow()" class="btn btn-danger">Edytuj</button></td>
+            <td><button (click)="usunObiekt(obj)" class="btn btn-primary">Usuń</button></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><strong>Łącznie:</strong></td>
+            <td>{{sStypendium}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="showDodajOsobe" class="col-md-6 form-group">
+      <h1>Dodawanie osoby </h1>
+      <label>Imie: </label><input [(ngModel)]="obiekt.imie" class="form-control" /><br />
+      <label>Nazwisko: </label><input [(ngModel)]="obiekt.nazwisko" class="form-control" /><br />
+      <label>Stypendium: </label><input [(ngModel)]="obiekt.stypendium" class="form-control"  /><br />
+      <button (click)="dodaj()" (click)="dodajOsobeShow()" (click)="sumaStypendium()" class="btn btn-primary" *ngIf="!trybEdycji">Dodaj osobę</button>
+      <button (click)="zatwierdz()" (click)="dodajOsobeShow()" class="btn" *ngIf="trybEdycji">Zatwierdz</button>
+    </div>
+  </div>
+</div>

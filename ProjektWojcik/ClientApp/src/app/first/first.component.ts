@@ -6,30 +6,37 @@ import { Component } from "@angular/core"
 })
 export class FirstComponent {
 
-  private kolekcja = [
-    { nazwa: "Ala", wartosc: 12 },
-    { nazwa: "Ola", wartosc: 23 },
-    { nazwa: "Tomek", wartosc: 32 },
-  ];
+  private kolekcja = [];
 
-  private obiekt = { nazwa: "", wartosc: 0 };
+  private obiekt = { Imie: "", Nazwisko: "", Stypendium: 0 };
   private trybEdycji = false;
-  dodajObiekt() {
+  private showDodajOsobe = false;
+  private sStypendium = 0;
 
-    this.kolekcja.push({ nazwa: "Nowy", wartosc: 10 })
+  usunObiekt(o) {
+  this.kolekcja.pop();
   }
- usunObiekt(o) {
-    this.obiekt.pop(o);
- }
   edytujObiekt(o) {
     this.trybEdycji = true;
     this.obiekt = o;
   }
   dodaj(obiekt) {
-    this.kolekcja.push(Object.assign({},this.obiekt))
+    this.kolekcja.push(Object.assign({}, this.obiekt))
   }
   zatwierdz() {
-    this.obiekt = { nazwa: "", wartosc: 0 };
+    this.obiekt = { Imie: "", Nazwisko: "", Stypendium: 0 };
     this.trybEdycji = false;
+  }
+  dodajOsobeShow() {
+    if (this.trybEdycji == false)
+      this.obiekt = { Imie: "", Nazwisko: "", Stypendium: 0 };
+    if (this.showDodajOsobe == false)
+      this.showDodajOsobe = true;
+    else
+      this.showDodajOsobe = false
+
+  }
+  sumaStypendium() {
+    this.sStypendium += this.kolekcja.length;
   }
 }
