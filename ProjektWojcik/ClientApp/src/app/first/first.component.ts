@@ -14,7 +14,7 @@ export class FirstComponent {
   private sStypendium = 0;
 
   usunObiekt(o) {
-  this.kolekcja.pop();
+   // this.kolekcja.pop();
   }
   edytujObiekt(o) {
     this.trybEdycji = true;

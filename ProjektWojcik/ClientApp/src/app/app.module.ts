@@ -5,19 +5,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { StudentsComponent } from './students/students.component';
 import { FirstComponent } from './first/first.component';
+import { StudentsService } from './data-services/students.service';
+import { StudentsLsService } from './data-services/students-ls.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    StudentsComponent,
     FirstComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    ],
-  providers: [],
+  ],
+  providers: [{ provide: StudentsService, useClass:StudentsLsService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
