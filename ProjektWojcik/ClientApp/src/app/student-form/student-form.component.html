@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+    <h2>Dodawanie osoby </h2>
+    <div class="form-group">
+      <label class="control-label">Imie: </label><input formControlName="FirstName" class="form-control" /><br />
+      <div *ngIf="!form.get('FirstName').valid && form.get('FirstName').dirty" class="text-danger">Wartosc w polu jest wymagana</div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Nazwisko: </label><input formControlName="LastName" class="form-control" /><br />
+      <div *ngIf="!form.get('LastName').valid && form.get('LastName').dirty" class="text-danger">Wartosc w polu jest wymagana</div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Stypendium: </label><input formControlName="Grant" class="form-control" /><br />
+      <div *ngIf="!form.get('Grant').valid && form.get('Grant').dirty" class="text-danger">Wartosc w polu jest wymagana</div>
+    </div>
+    <button class="btn btn-sm btn-success" [disabled]="!form.valid" (click)="save()">Zatwierdź</button>
+    <button class="btn btn-sm btn-danger" (click)="cancel()">Anuluj</button>
+  </form>
+

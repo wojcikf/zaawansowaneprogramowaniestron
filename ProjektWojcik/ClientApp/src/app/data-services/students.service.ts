@@ -24,7 +24,9 @@ export class StudentsService {
     Object.assign(stud, student);
   }
   delete(student: Student) {
-    let stud = this.findById(student.id);
-    this.collection.pop();
+    const index = this.collection.indexOf(student, 0);
+    if (index > -1) {
+      this.collection.splice(index, 1);
+    }
   }
 }

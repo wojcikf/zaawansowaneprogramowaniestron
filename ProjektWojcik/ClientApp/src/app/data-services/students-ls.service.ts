@@ -16,20 +16,30 @@ export class StudentsLsService extends StudentsService {
     this.SaveStudent(student);
   }
   public delete(student: Student) {
-    super.update(student);
-    this.SaveStudent(student);
+    super.delete(student);
+    this.RemoveStudent(student);
   }
+
   private LoadData() {
     let ls = window.localStorage;
     for (let i = 0; i<ls.length; i++) {
       let key = ls.key(i);
-      let stud = JSON.parse(ls.getItem(key));
-      this.collection.push(stud);
-      
+      if (key != "nextId") {
+        let stud = JSON.parse(ls.getItem(key));
+        this.collection.push(stud);
+      }
     }
+    this.nextId = JSON.parse(ls.getItem("nextId"));
   }
   private SaveStudent(student: Student) {
     let ls = window.localStorage;
     ls.setItem(student.id.toString(), JSON.stringify(student));
+    ls.setItem("nextId", this.nextId.toString());
   }
+
+  private RemoveStudent(student: Student) {
+    let ls = window.localStorage;
+    ls.removeItem(student.id.toString());
+  }
+
 }
