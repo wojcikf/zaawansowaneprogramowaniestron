@@ -1,3 +1,7 @@
+KONSOLA WINDOWS: 
+
+dotnet new angular
+
 npm install -g @angular/cli
 
 npm g c  NAZWA-KOMPONENTU
