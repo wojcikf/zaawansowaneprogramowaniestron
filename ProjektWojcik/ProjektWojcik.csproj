@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\first\first.component.ts" />
+    <None Remove="ClientApp\src\app\infrastructure\first-letter.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\first\first.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\infrastructure\first-letter.ts" />
   </ItemGroup>
 
 </Project>

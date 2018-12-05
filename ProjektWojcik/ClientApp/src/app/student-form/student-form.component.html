@@ -3,6 +3,7 @@
     <div class="form-group">
       <label class="control-label">Imie: </label><input formControlName="FirstName" class="form-control" /><br />
       <div *ngIf="!form.get('FirstName').valid && form.get('FirstName').dirty" class="text-danger">Wartosc w polu jest wymagana</div>
+   
     </div>
     <div class="form-group">
       <label class="control-label">Nazwisko: </label><input formControlName="LastName" class="form-control" /><br />

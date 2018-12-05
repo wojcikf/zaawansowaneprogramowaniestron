@@ -3,6 +3,7 @@ import { StudentsService } from '../data-services/students.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Student } from '../model/student';
 import { Router } from '@angular/router';
+//import { FirstLetterUpper } from '../infrastructure/first-letter';
 
 @Component({
   selector: 'app-student-form',
@@ -19,7 +20,7 @@ export class StudentFormComponent implements OnInit {
     this.form = this.fb.group({
 
       id: this.fb.control(0),
-      FirstName: this.fb.control("", Validators.compose([Validators.required, Validators.minLength(3)])),
+      FirstName: this.fb.control("", Validators.compose([Validators.required, Validators.minLength(3)/*FirstLetterUpper.validate*/])),
       LastName: this.fb.control("", Validators.compose([Validators.required, Validators.minLength(3)])),
       Grant: this.fb.control(0, Validators.compose([Validators.required, Validators.minLength(3)]))
     });
