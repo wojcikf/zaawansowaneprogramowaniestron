@@ -16,11 +16,9 @@ export class FirstComponent {
   private trybEdycji = false;
   dodajObiekt() {
 
-    this.kolekcja.push({ nazwa: "Nowy", wartosc: 10 })
+  usunObiekt(o) {
+  this.kolekcja.pop();
   }
- usunObiekt(o) {
-    this.obiekt.pop(o);
- }
   edytujObiekt(o) {
     this.trybEdycji = true;
     this.obiekt = o;
