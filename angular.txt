@@ -1,0 +1,8 @@
+npm install -g @angular/cli
+
+npm g c  NAZWA-KOMPONENTU
+ng g cl Model\Student
+
+ng g s data-services/StudentsServices
+ng g s data-services/StudentsLs
+
